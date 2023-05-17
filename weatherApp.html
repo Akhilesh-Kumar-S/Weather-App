@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+    box-sizing : border-box;
+    margin : 0;
+    padding : 0;
+    text-align : center;
+    font-family : 'Poppins',sans-serif;
+    color : orange;
+    scrollbar-width : none;
+}
+.searching{
+    position : absolute;
+    z-index : 20;
+    right : 0;
+    color : black;
+}
+
+.info{
+    display : flex;
+    flex-direction : column;
+    width : 100vw;
+    align-items : center;
+    height : 30vh;
+}
+.search{
+    height : 2%;
+    width : 20vw;
+    border-radius : 10px;
+    border : 3px solid grey;
+    color : black;
+}
+.city{
+
+    width : 10vw;
+    height : auto;
+    display : inline-block;
+    text-transform : capitalize;
+}
+.country{
+
+    width : 10vw;
+    height : auto; 
+    display : inline-block;
+    text-transform : capitalize;
+}
+
+.time{
+
+    width : 40vw;
+    height : 5vh;  
+}
+.btn{
+    color : black;
+    width : 100px;
+    border : 2px solid black;
+    border-radius : 10px;
+}
+.location{
+    margin-top : 5%;
+    margin-bottom : 5%;
+}
+.weatherInfo{
+    margin-top : 0.4%;
+    width : 100vw;
+    height : auto;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+}
+.box{
+    margin : 5% 1%;
+    font-size : 120%;
+    width : 20vw;
+    height : auto;
+    text-align : center;
+    text-transform : capitalize;
+    font-style : calibri;
+    
+}
+.startInfo{
+    width : 100vw;
+    height : auto;
+    display : flex;
+    flex-direction : row;
+    margin-top : 10%;
+}
+.symbolPhrase{
+    width : 50%;
+    height : 30%;
+    font-size : 150%;
+    line-height : 130%;
+    text-transform : capitalize;
+    padding : 3%;
+
+}
+.temperature{
+    margin-bottom : 3%;
+    font-size : 150%;
+
+    width : 50%;
+    height : 30%;
+}
+.otherInfo{
+    width : 100vw;
+    height : 30%;
+    font-size : 1.2rem;
+    line-height : 160%;
+    text-transform : capitalize;
+    text-align : center;
+    padding : 1%;
+}
+
+.back-video{
+    position : absolute;
+    opacity : 0.8;
+    right : 0;
+    bottom : 0;
+    z-index : -1;
+    position : fixed;
+}
+
+@media (min-aspect-ration : 16/9){
+    .back-video{
+        width : 100%;
+        height : auto;
+    }
+}
+
+@media (max-aspect-ration : 16/9){
+    .back-video{
+        width : auto;
+        height : 100%;
+    }
+}
+@media (max-width : 480px) and (min-width : 321px){
+    .weatherInfo{
+        display : flex;
+        flex-direction : column;
+        justify-content : space-around;
+    }
+
+    .box{
+        width : 100%;
+        height : auto;
+        font-style : calibri;
+        text-transform : capitalize;
+        margin-top : 5%;
+        margin-bottom : 5%;
+        font-size : 120%;
+    }
+
+
+    .info{
+        display : block;
+        padding-top : 10%;
+        display : flex;
+        flex-direction : column;
+        justify-content : space-around;
+    }
+    .city{
+        width : 50vw;
+        box-sizing : border-box;
+        height : 10vh;
+  
+        text-transform : capitalize;
+    }
+    .country{
+        width : 50vw;
+        box-sizing : border-box;
+        height : 10vh;
+        text-transform : capitalize;
+ 
+    }
+    .location{
+        display : flex;
+        flex-direction : row;
+        width : 100vw;
+        height : 10vh;
+        margin-top : 5%;
+        margin-bottom : 5%;
+    }
+    .time{
+        width : 100vw;
+        height : 10vh;
+    }
+
+    .searching{
+        width : 100vw;
+    }
+    .search{
+        width : 70vw;
+    }
+}
+
+@media (max-width : 320px){
+    .searching{
+        width : 100vw;
+    }
+    .search{
+        width : 70vw;
+    }
+    .weatherInfo{
+        display : flex;
+        flex-direction : column;
+        justify-content : space-between;
+    }
+    .box{
+        width : 100%;
+        height : auto;
+        margin-top : 5%;
+        margin-bottom : 5%;
+        font-size : 120%;
+    }
+    .city{
+        width : 50vw;
+        height : 10vh;
+    }
+
+    .country{
+        width : 50vw;
+        height : 10vh;
+    }
+
+    .time{
+        width : 100vw;
+        height : 10vh;
+    }
+    .location{
+        display : flex;
+        flex-direction : row;
+        width : 100vw;
+        height : 10vh;
+        margin-top : 5%;
+        margin-bottom : 5%;
+    }
+    .info{
+        display : block;
+        padding-top : 10%;
+        display : flex;
+        flex-direction : column;
+        justify-content : space-around;
+    }
+}
+
+
+@media (max-width : 1023px) and (min-width : 481px){
+    .searching{
+        width : 100vw;
+    }
+    .search{
+        width : 70vw;
+    }
+    .weatherInfo{
+        display : flex;
+        flex-direction : column;
+        justify-content : space-between;
+    }
+    .box{
+        width : 100%;
+        height : auto;
+        margin-top : 5%;
+        margin-bottom : 5%;
+        font-size : 120%;
+    }
+    .city{
+        width : 50vw;
+        height : 10vh;
+    }
+
+    .country{
+        width : 50vw;
+        height : 10vh;
+    }
+
+    .time{
+        width : 100vw;
+        height : 10vh;
+    }
+    .location{
+        display : flex;
+        flex-direction : row;
+        width : 100vw;
+        height : 10vh;
+        margin-top : 5%;
+        margin-bottom : 5%;
+    }
+    .info{
+        display : block;
+        padding-top : 10%;
+        display : flex;
+        flex-direction : column;
+        justify-content : space-around;
+    }
+}
+    </style>
+
+    <script>
+        let city = "Delhi" , country , time , lat , lon;
+let max_temp , min_temp , temp , pressure , relHumidity;
+
+let cloudiness , dewPoint , precipProb , precipRate;
+let symbolPhrase;
+
+let co , no2 , o3 , pm2_5 , pm10 , so2 , overall_aqi;
+
+
+
+let cloud_pct , humidity , wind_degrees , wind_speed , wind_direction , windGust;
+// //Weather By APi Ninja 
+const options1 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+//Foreca Weather Location Search
+const options2 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+// Foreca Weather Location Info
+const options3 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+// Foreca Weather Latest Observations 
+const options4 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+// Air Quality By Api NINJAS
+const options5 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'air-quality-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+
+// Foreca Weather Current
+const options6 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+//Foreca Weather NowCast
+const options7 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+//Foreca Weather Hourly
+const options8 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+
+//Foreca Weather Daily
+const options9 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b402cfb368mshc86ca18e236938ap1fe7a3jsn90858846b4ea',
+		'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+	}
+};
+
+
+function locationInfo(id){
+	//Foreca Weather Location Info
+	fetch(`https://foreca-weather.p.rapidapi.com/location/${id}`, options3)
+	.then(response => response.json())
+	.then((response) => {
+		console.log("Foreca Weather Location Info");
+
+		lat = response["lat"];
+		lon = response["lon"];
+		latestObservation(id);
+
+		console.log(response);})
+	.catch(err => console.error(err));
+}
+
+
+function latestObservation(id){
+	//Foreca Weather Latest Observation
+	fetch(`https://foreca-weather.p.rapidapi.com/observation/latest/${id}?lang=en`, options4)
+	.then(response => response.json())
+	.then((response) => {
+		console.log("Foreca Weather Latest Observation");
+
+		time = response.observations[0]["time"];
+		wind_direction = response.observations[0]["windDirString"];
+		pressure = response.observations[0]["pressure"];
+		relHumidity = response.observations[0]["relHumidity"];
+		airQuality(city);
+		console.log(response);})
+	.catch(err => console.error(err));
+}
+
+
+function airQuality(city){
+	//Air Quality By APi NINJA
+	fetch(`https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality?city=${city}`, options5)
+	.then(response => response.json())
+	.then((response) => {
+		console.log("Air Quality");
+
+		co = response["CO"]["concentration"];
+		no2 = response["NO2"]["concentration"];
+		o3 = response["O3"]["concentration"];
+		pm2_5 = response["PM2.5"]["concentration"];
+		pm10 = response["PM10"]["concentration"];
+		so2 = response["SO2"]["concentration"];
+		overall_aqi = response["overall_aqi"];
+		current(id);
+		console.log(response);})
+	.catch(err => console.error(err));
+}
+
+
+function current(id){
+
+	//Foreca Weather Current
+	fetch(`https://foreca-weather.p.rapidapi.com/current/${id}?alt=0&tempunit=C&windunit=MS&tz=Europe%2FLondon&lang=en`, options6)
+	.then(response => response.json())
+	.then((response) => {
+		console.log("Foreca Weather Current");
+		cloudiness = response.current["cloudiness"];
+		precipProb = response.current["precipProb"];
+		precipRate = response.current["precipRate"];
+		symbolPhrase = response.current["symbolPhrase"];
+
+        if(screen.width <= 480 && screen.width >= 320){
+			if(symbolPhrase.includes("cloudy")){
+				document.getElementsByClassName("back-video")[0].setAttribute("src" , "Cloudy Weather Romantic whatsapp status.mp4");
+				document.body.style.color = "orange";
+			}
+			else if(symbolPhrase.includes("clear") || symbolPhrase.includes("sunny")){
+				document.getElementsByClassName("back-video")[0].setAttribute("src" , "Palm Tree On A Sunny Day _ Cinematic Background Video _ Video Background Loop _ 4k Footage.mp4");
+			}
+			else if(symbolPhrase.includes("rain")){
+				document.getElementsByClassName("back-video")[0].setAttribute("set" , "Beautiful Rain Scene - Rain video status - Rainy Season Status - Rain Feel - Videos Hub.mp4");
+			}
+
+            document.getElementsByClassName("back-video")[0].play();
+		}
+
+		dewPoint = response.current["dewPoint"];
+
+
+
+		document.getElementsByClassName("city")[0].innerHTML = `<h1>${city}</h1>`;
+		document.getElementsByClassName("country")[0].innerHTML = `<h1>${country}</h1>`;
+		time = new Date(time);
+		document.getElementsByClassName("time")[0].innerHTML = `<p>${time}</p>`;
+		document.getElementsByClassName("temperature")[0].innerHTML = `<h1>${temp}&#8451</h1><p>${max_temp}&#8451/${min_temp}&#8451</P>`;
+
+
+		document.getElementsByClassName("pressure")[0].innerHTML = `<h1>Pressure</h1><br><p>Pressure :  ${pressure}</p> <br> <p>RelHumidity :  ${relHumidity}</p><br> <p>Precipitation Rate :  ${precipRate}</p> <br> <p>Symbol Phrase :  ${symbolPhrase}</p>`;
+
+
+		document.getElementsByClassName("wind")[0].innerHTML = `<h1>Wind</h1>
+		<br><p>Wind Direction :  ${wind_direction}</p> <br> <p>Wind Degrees :  ${wind_degrees}</p><br> <p>Cloudiness :  ${cloudiness}</p> <br> <p>Dew Point :  ${dewPoint}</p>`;
+
+
+		document.getElementsByClassName("airquality")[0].innerHTML = `<h1>Air Quality</h1> <br> <p>CO :  ${co}</p> <br> <p>NO2 :  ${no2}</p> <br> <p>O3 :  ${o3}</p> <br><p>PM2.5 :  ${pm2_5}</p><br> <p>PM10 :  ${pm10}</p><br> <p>SO2 :  ${so2}</p><br><p>Overall AQI :  ${overall_aqi}</p>`;
+
+		document.getElementsByClassName("symbolPhrase")[0].innerHTML = `<h1>${symbolPhrase}</h1>`;
+
+		document.getElementsByClassName("otherInfo")[0].innerHTML = `<p>Precipitation : ${precipProb}&#37<p>Humidity : ${humidity}&#37</p><p>Wind Speed : ${wind_speed} Km/hr</p>`;
+
+
+
+		console.log(response);})
+		
+	.catch(err => console.error(err));
+
+}
+
+
+
+
+
+
+
+function weather(city){
+	// APi NINJA
+	fetch(`https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=${city}`, options1)
+	.then(response => response.json())
+	.then((response) => {
+		console.log("API NINJA");
+		console.log(response);})
+	.catch(err => console.error(err));
+}
+
+
+function locationSearch(city){
+	// Foreca Weather Location Search
+	fetch(`https://foreca-weather.p.rapidapi.com/location/search/${city}`, options2)
+	.then(response => response.json())
+	.then((response) =>{
+		console.log("Foreca Weather Location Search");
+		console.log(response);})
+	.catch(err => console.error(err));
+}
+
+
+
+function search(){
+
+	city = document.getElementsByClassName("search")[0].value;
+	// APi NINJA
+	fetch(`https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=${city}`, options1)
+	.then(response => response.json())
+	.then((response) => {
+		console.log("API NINJA");
+
+		cloud_pct = response.cloud_pct;
+		humidity = response.humidity;
+		wind_degrees = response.wind_degrees;
+		wind_speed = response.wind_speed;
+		max_temp = response.max_temp;
+		min_temp = response.min_temp;
+		temp = response.temp;
+
+
+
+		console.log(response);})
+	.catch(err => console.error(err));
+
+
+	// Foreca Weather Location Search
+	fetch(`https://foreca-weather.p.rapidapi.com/location/search/${city}`, options2)
+	.then(response => response.json())
+	.then((response) =>{
+		console.log("Foreca Weather Location Search");
+		id = response.locations[0]["id"];
+
+
+		country = response.locations[0]["country"];
+
+		locationInfo(id);
+		console.log(response);})
+	.catch(err => console.error(err));
+}
+
+
+    </script>
+
+
+</head>
+<body>
+
+    
+    <video src = "https://youtube.com/shorts/UNFsK790wLw?feature=share"></video>
+    <form class = "searching">
+        <input type = "text" class = "search" placeholder = "Enter A City">
+        <input type = "button" class = "btn" value = "Enter" onclick = "search()">
+    </form>
+
+
+    <div class="info">
+        <div class="location">
+            <div class="city"></div>
+            <div class="country"></div>
+        </div>
+        <div class="time"></div>
+    </div>
+    
+    <br>
+    <div class="startInfo">
+        <div class="temperature"></div>
+        <div class="symbolPhrase"></div>
+    </div>
+
+    <div class="otherInfo"></div>
+    <br>
+    <div class="weatherInfo">
+        <div class="pressure box">
+            
+        </div>
+        <div class="wind box">
+            
+        </div>
+        <div class="airquality box">
+            
+        </div>
+    </div>
+</body>
+</html>
